@@ -8,11 +8,13 @@ This repository contains the documentation for the Rennes ion-source quadrupole.
 
 ### Step 1: Download the Raspberry Pi OS
 
-Download the Raspberry Pi OS from the official website: https://www.raspberrypi.org/software/operating-systems/
+Download the Raspberry Pi OS from the official website:
+[https://www.raspberrypi.org/software/operating-systems/]
 
 ### Step 2: Install the Raspberry Pi OS
 
-Follow the instructions on the official website to install the Raspberry Pi OS on the SD card: https://www.raspberrypi.org/documentation/installation/installing-images/
+Follow the instructions on the official website to install the Raspberry Pi OS on the SD card:
+[https://www.raspberrypi.org/documentation/installation/installing-images/]
 
 ### Step 3: Configure the Raspberry Pi
 
@@ -111,4 +113,32 @@ sudo chmod 644 /etc/systemd/system/qsource3-mqtt.service
 sudo systemctl daemon-reload
 sudo systemctl enable qsource3-mqtt
 sudo systemctl start qsource3-mqtt
+```
+
+The QSource3-MQTT service is now running and will start automatically on boot. To check the status of the QSource3-MQTT service, use the following command:
+
+```bash
+sudo systemctl status qsource3-mqtt
+```
+
+To view the log file of the QSource3-MQTT service, use the following command:
+
+```bash
+sudo journalctl -u qsource3-mqtt
+```
+
+### Step 8: Install and setup the QSource3-MQTT-GUI client
+
+Download the QSource3-MQTT-GUI client from the GitHub repository:
+
+```bash
+git clone https://github.com/jurajjasik/qsource3-mqtt-gui.git
+```
+
+Install the required python packages:
+
+```bash
+git clone https://github.com/slightlynybbled/engineering_notation.git
+cd engineering_notation
+sudo python3 setup.py install
 ```
